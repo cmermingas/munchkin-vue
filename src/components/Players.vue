@@ -51,7 +51,6 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .player {
-        padding: 7px 0;
         border-top: gray dotted 1px;
     }
     .player:last-of-type {

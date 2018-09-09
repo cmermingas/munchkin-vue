@@ -1,23 +1,33 @@
 <template>
-    <div class="player">
-        <font-awesome-icon class="text-info" v-bind:icon="player.gender" size="2x" fixed-width v-on:click="toggleGender"/>
-        <div class="player-stats">
-            <span class="player-name">{{ player.name }}</span>
-            <span class="player-strength">{{ player.strength }}</span>
+    <div class="row align-items-center">
+        <div class="col-5 text-truncate">
+                <font-awesome-icon
+                        class="text-info"
+                        size="2x"
+                        v-bind:icon="player.gender"
+                        fixed-width
+                        v-on:click="toggleGender"/>
+                {{ player.name }}
         </div>
-        <div class="btn-group">
-            <button type="button" class="btn btn-outline-secondary" v-if="!allowDeleting" v-on:click="reduceStrength(player)">
-                <font-awesome-icon icon="minus" fixed-width/>
-            </button>
-            <button type="button" class="btn btn-outline-secondary" v-if="!allowDeleting" v-on:click="increaseStrength(player)">
-                <font-awesome-icon icon="plus" fixed-width/>
-            </button>
-            <button type="button" class="btn btn-outline-primary" v-bind:class="{active: player.isFighting}" v-if="!allowDeleting" v-on:click="toggleFight()">
-                ⚔️
-            </button>
-            <button type="button" class="btn btn-outline-danger" v-if="allowDeleting" v-on:click="deletePlayer">
-                <font-awesome-icon icon="trash-alt" fixed-width/>
-            </button>
+        <div class="col-2 text-center">{{ player.strength }}</div>
+        <div class="col-5 text-right actions">
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-secondary" v-if="!allowDeleting"
+                        v-on:click="reduceStrength(player)">
+                    <font-awesome-icon icon="minus" fixed-width/>
+                </button>
+                <button type="button" class="btn btn-outline-secondary" v-if="!allowDeleting"
+                        v-on:click="increaseStrength(player)">
+                    <font-awesome-icon icon="plus" fixed-width/>
+                </button>
+                <button type="button" class="btn btn-outline-primary" v-bind:class="{active: player.isFighting}"
+                        v-if="!allowDeleting" v-on:click="toggleFight()">
+                    ⚔️
+                </button>
+                <button type="button" class="btn btn-outline-danger" v-if="allowDeleting" v-on:click="deletePlayer">
+                    <font-awesome-icon icon="trash-alt" fixed-width/>
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -53,21 +63,16 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .player {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        touch-action: manipulation;
-    }
-    .player-stats {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
+    .row > [class*="col-"] {
+        padding-top: 7px;
+        padding-bottom: 7px;
     }
 
     .btn-outline-primary:hover, .btn-outline-primary:focus {
         background-color: transparent;
+    }
+
+    .actions {
+        touch-action: manipulation;
     }
 </style>
