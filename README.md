@@ -1,5 +1,7 @@
 # Munchkin
 
+App deployed to Github pages: [check it out!](https://cmermingas.github.io/munchkin-vue/)
+
 As I become more familiar with [Munchkin](http://www.worldofmunchkin.com/game/),
 I've found that we spend a lot of time adding numbers up and down, which gets
 particularly distracting in the heat of a battle when monsters start wandering and
